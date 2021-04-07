@@ -1,0 +1,344 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e4425ecdf087d07ff0ee37e46210f7b9",
+    "packages": [
+        {
+            "name": "phpvv/core",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpvv/core.git",
+                "reference": "d38e56392b85e79dee5f89d92cf76ade3377fcbd"
+            },
+            "require": {
+                "php": "^8.0",
+                "phpvv/exception": "^0.2.0",
+                "phpvv/notice": "^0.1.1",
+                "phpvv/runtime": "^0.2.0"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Bootstrap.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Volodymyr Sarnytskyi",
+                    "email": "v00v4n@gmail.com"
+                }
+            ],
+            "description": "VV Core Bundle",
+            "time": "2021-03-28T08:20:32+00:00"
+        },
+        {
+            "name": "phpvv/db",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpvv/db.git",
+                "reference": "ee0a75dce26b2919e408d994be7c92a154aa35f6"
+            },
+            "require": {
+                "php": "^8.0",
+                "phpvv/exception": "^0.2.0",
+                "phpvv/runtime": "^0.2.0"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "^1.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Db.php"
+                ],
+                "psr-4": {
+                    "VV\\Db\\": "Db"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Volodymyr Sarnytskyi",
+                    "email": "v00v4n@gmail.com"
+                }
+            ],
+            "description": "VV database abstraction layer with query builder and DB structure models",
+            "time": "2021-04-06T19:15:18+00:00"
+        },
+        {
+            "name": "phpvv/db-mysqli",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpvv/db-mysqli.git",
+                "reference": "0957639cda8244c1a5cca9c424b8c73022e5e888"
+            },
+            "require": {
+                "ext-mysqli": "*",
+                "php": "^8.0",
+                "phpvv/db": "dev-master"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "^1.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "VV\\Db\\Mysqli\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Volodymyr Sarnytskyi",
+                    "email": "v00v4n@gmail.com"
+                }
+            ],
+            "description": "VV DB Driver over MySQLi extension",
+            "time": "2021-04-06T19:15:16+00:00"
+        },
+        {
+            "name": "phpvv/db-oci",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpvv/db-oci.git",
+                "reference": "aca72ec310975e1db56f2e47a3b8ae39e6eb6a43"
+            },
+            "require": {
+                "ext-oci8": "*",
+                "php": "^8.0",
+                "phpvv/db": "dev-master"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "^1.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "VV\\Db\\Oci\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Volodymyr Sarnytskyi",
+                    "email": "v00v4n@gmail.com"
+                }
+            ],
+            "description": "VV DB Driver over OCI extension",
+            "time": "2021-04-06T19:15:16+00:00"
+        },
+        {
+            "name": "phpvv/db-pdo",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpvv/db-pdo.git",
+                "reference": "9bda6a4a2829413a3b408454eb127397e24aa56f"
+            },
+            "require": {
+                "ext-pdo": "*",
+                "php": "^8.0",
+                "phpvv/db": "dev-master"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "^1.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "VV\\Db\\Pdo\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Volodymyr Sarnytskyi",
+                    "email": "v00v4n@gmail.com"
+                }
+            ],
+            "description": "VV DB Driver over Oci extension",
+            "time": "2021-04-06T19:15:17+00:00"
+        },
+        {
+            "name": "phpvv/exception",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpvv/exception.git",
+                "reference": "25cf76ff57fd6c93fd9c5949f7231c370b6a2b7c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpvv/exception/zipball/25cf76ff57fd6c93fd9c5949f7231c370b6a2b7c",
+                "reference": "25cf76ff57fd6c93fd9c5949f7231c370b6a2b7c",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0",
+                "phpvv/runtime": "0.2.0"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Exception.php"
+                ],
+                "psr-4": {
+                    "VV\\Exception\\": "Exception/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Volodymyr Sarnytskyi",
+                    "email": "v00v4n@gmail.com"
+                }
+            ],
+            "description": "VV Exception",
+            "support": {
+                "issues": "https://github.com/phpvv/exception/issues",
+                "source": "https://github.com/phpvv/exception/tree/v0.2.0"
+            },
+            "time": "2021-03-28T08:11:01+00:00"
+        },
+        {
+            "name": "phpvv/notice",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpvv/notice.git",
+                "reference": "00562782c3f805bce8f6221b77020f835b86bbe8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpvv/notice/zipball/00562782c3f805bce8f6221b77020f835b86bbe8",
+                "reference": "00562782c3f805bce8f6221b77020f835b86bbe8",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Notice.php"
+                ],
+                "psr-4": {
+                    "VV\\Notice\\": "Notice/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Volodymyr Sarnytskyi",
+                    "email": "v00v4n@gmail.com"
+                }
+            ],
+            "description": "VV Notice Service",
+            "support": {
+                "issues": "https://github.com/phpvv/notice/issues",
+                "source": "https://github.com/phpvv/notice/tree/v0.1.1"
+            },
+            "time": "2021-03-20T13:57:22+00:00"
+        },
+        {
+            "name": "phpvv/runtime",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpvv/runtime.git",
+                "reference": "d407151fd0b19ca09759ab30d8c80304911a5080"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpvv/runtime/zipball/d407151fd0b19ca09759ab30d8c80304911a5080",
+                "reference": "d407151fd0b19ca09759ab30d8c80304911a5080",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "const.php",
+                    "func.php"
+                ],
+                "classmap": [
+                    "VV.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Volodymyr Sarnytskyi",
+                    "email": "v00v4n@gmail.com"
+                }
+            ],
+            "description": "VV Runtime",
+            "support": {
+                "issues": "https://github.com/phpvv/runtime/issues",
+                "source": "https://github.com/phpvv/runtime/tree/v0.2.0"
+            },
+            "time": "2021-03-28T07:57:57+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "phpvv/db-mysqli": 20,
+        "phpvv/db-oci": 20,
+        "phpvv/db-pdo": 20,
+        "phpvv/db": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^8.0"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

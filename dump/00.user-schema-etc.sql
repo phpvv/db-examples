@@ -1,0 +1,3 @@
+CREATE DATABASE vv_example;
+CREATE USER vv_example WITH ENCRYPTED PASSWORD 'vv_example';
+GRANT ALL PRIVILEGES ON DATABASE vv_example TO vv_example;
