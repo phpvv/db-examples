@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4425ecdf087d07ff0ee37e46210f7b9",
+    "content-hash": "0b0c26180139ddf350bbd6e92e465cd9",
     "packages": [
         {
             "name": "phpvv/core",
             "version": "0.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpvv/core.git",
+            "dist": {
+                "type": "path",
+                "url": "../core",
                 "reference": "d38e56392b85e79dee5f89d92cf76ade3377fcbd"
             },
             "require": {
@@ -39,15 +39,17 @@
                 }
             ],
             "description": "VV Core Bundle",
-            "time": "2021-03-28T08:20:32+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "phpvv/db",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpvv/db.git",
-                "reference": "ee0a75dce26b2919e408d994be7c92a154aa35f6"
+            "dist": {
+                "type": "path",
+                "url": "../db",
+                "reference": "245b6c16ccb36740c1e29c4ffd9afe332873d40b"
             },
             "require": {
                 "php": "^8.0",
@@ -57,7 +59,6 @@
             "require-dev": {
                 "jetbrains/phpstorm-attributes": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "classmap": [
@@ -77,14 +78,16 @@
                 }
             ],
             "description": "VV database abstraction layer with query builder and DB structure models",
-            "time": "2021-04-06T19:15:18+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "phpvv/db-mysqli",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpvv/db-mysqli.git",
+            "dist": {
+                "type": "path",
+                "url": "../db-mysqli",
                 "reference": "0957639cda8244c1a5cca9c424b8c73022e5e888"
             },
             "require": {
@@ -95,7 +98,6 @@
             "require-dev": {
                 "jetbrains/phpstorm-attributes": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -112,14 +114,16 @@
                 }
             ],
             "description": "VV DB Driver over MySQLi extension",
-            "time": "2021-04-06T19:15:16+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "phpvv/db-oci",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpvv/db-oci.git",
+            "dist": {
+                "type": "path",
+                "url": "../db-oci",
                 "reference": "aca72ec310975e1db56f2e47a3b8ae39e6eb6a43"
             },
             "require": {
@@ -130,7 +134,6 @@
             "require-dev": {
                 "jetbrains/phpstorm-attributes": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -147,14 +150,16 @@
                 }
             ],
             "description": "VV DB Driver over OCI extension",
-            "time": "2021-04-06T19:15:16+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "phpvv/db-pdo",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpvv/db-pdo.git",
+            "dist": {
+                "type": "path",
+                "url": "../db-pdo",
                 "reference": "9bda6a4a2829413a3b408454eb127397e24aa56f"
             },
             "require": {
@@ -165,7 +170,6 @@
             "require-dev": {
                 "jetbrains/phpstorm-attributes": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -182,7 +186,9 @@
                 }
             ],
             "description": "VV DB Driver over Oci extension",
-            "time": "2021-04-06T19:15:17+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "phpvv/exception",

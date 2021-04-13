@@ -24,7 +24,6 @@ RUN sed -i 's/^deb http:\/\/archive\./deb http:\/\/ua.archive./g' /etc/apt/sourc
     && sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' \
     && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
     && apt-get -y install postgresql \
-    && echo "host all  all    0.0.0.0/0  md5" >> /etc/postgresql/12/main/pg_hba.conf \
     && echo "listen_addresses='*'" >> /etc/postgresql/12/main/postgresql.conf \
     #
     # clean
@@ -32,10 +31,11 @@ RUN sed -i 's/^deb http:\/\/archive\./deb http:\/\/ua.archive./g' /etc/apt/sourc
 
 WORKDIR /app/src
 COPY ./dump ./dump
+COPY ./docker/pg_hba.conf /etc/postgresql/12/main/pg_hba.conf
 
 RUN service postgresql start \
     && sudo -u postgres psql < ./dump/00.user-schema-etc.sql \
-    && sudo -u postgres psql vv_example < ./dump/01.struct.sql
+    && PGPASSWORD=vv_example psql -U vv_example vv_example < ./dump/01.struct.sql
 
 EXPOSE 5432
 

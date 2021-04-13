@@ -24,24 +24,24 @@
     },
     "repositories": [
         {
-            "type": "git",
-            "url":  "https://github.com/phpvv/db-mysqli.git"
+            "type": "path",
+            "url":  "../db-mysqli"
         },
         {
-            "type": "git",
-            "url":  "https://github.com/phpvv/db-oci.git"
+            "type": "path",
+            "url":  "../db-oci"
         },
         {
-            "type": "git",
-            "url":  "https://github.com/phpvv/db-pdo.git"
+            "type": "path",
+            "url":  "../db-pdo"
         },
         {
-            "type": "git",
-            "url":  "https://github.com/phpvv/db.git"
+            "type": "path",
+            "url":  "../db"
         },
         {
-            "type": "git",
-            "url":  "https://github.com/phpvv/core.git"
+            "type": "path",
+            "url":  "../core"
         }
     ]
 }
