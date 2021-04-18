@@ -46,21 +46,25 @@ SELECT setval('tbl_color_color_id_seq', 100, false);
 
 
 INSERT INTO tbl_product (product_id, brand_id, title, price, weight, width, height, depth, color_id)
-VALUES (1, 1, 'Computer 1', 1000, 10000, 250, 500, 655, 1);
+VALUES (10, 1, 'Computer 10', 1000, 10000, 250, 500, 500, 1);
 INSERT INTO tbl_product (product_id, brand_id, title, price, weight, width, height, depth, color_id)
-VALUES (2, 2, 'Mouse 2', 50.25, NULL, NULL, NULL, NULL, 5);
+VALUES (11, 1, 'Computer 11', 1500, 12000, 300, 600, 655, 1);
 INSERT INTO tbl_product (product_id, brand_id, title, price, weight, width, height, depth, color_id)
-VALUES (3, 3, 'Phone 3', 999.99, 172, 74, 158, 7.9, 2);
+VALUES (20, 2, 'Mouse 20', 50.25, NULL, NULL, NULL, NULL, 5);
 INSERT INTO tbl_product (product_id, brand_id, title, price, weight, width, height, depth, color_id)
-VALUES (4, NULL, 'HDMI Cable 4', 10.99, NULL, NULL, NULL, 2000, NULL);
+VALUES (30, 3, 'Phone 30', 999.99, 172, 74, 158, 7.9, 2);
 INSERT INTO tbl_product (product_id, brand_id, title, price, weight, width, height, depth, color_id)
-VALUES (5, NULL, 'TV 5', 500, 8300, 936, 627.3, 192.5, 1);
+VALUES (40, NULL, 'HDMI Cable 40', 10.99, NULL, NULL, NULL, 2000, NULL);
+INSERT INTO tbl_product (product_id, brand_id, title, price, weight, width, height, depth, color_id)
+VALUES (50, NULL, 'TV 50', 500, 8300, 936, 627.3, 192.5, 1);
 SELECT setval('tbl_product_product_id_seq', 1000, false);
 
 
-INSERT INTO tbl_products_categories (product_id, category_id) VALUES (1, 102);
-INSERT INTO tbl_products_categories (product_id, category_id) VALUES (1, 202);
-INSERT INTO tbl_products_categories (product_id, category_id) VALUES (2, 100);
-INSERT INTO tbl_products_categories (product_id, category_id) VALUES (3, 201);
-INSERT INTO tbl_products_categories (product_id, category_id) VALUES (4, 100);
-INSERT INTO tbl_products_categories (product_id, category_id) VALUES (5, 207);
+INSERT INTO tbl_products_categories (product_id, category_id) VALUES (10, 102);
+INSERT INTO tbl_products_categories (product_id, category_id) VALUES (10, 202);
+INSERT INTO tbl_products_categories (product_id, category_id) VALUES (11, 102);
+INSERT INTO tbl_products_categories (product_id, category_id) VALUES (11, 202);
+INSERT INTO tbl_products_categories (product_id, category_id) VALUES (20, 100);
+INSERT INTO tbl_products_categories (product_id, category_id) VALUES (30, 201);
+INSERT INTO tbl_products_categories (product_id, category_id) VALUES (40, 100);
+INSERT INTO tbl_products_categories (product_id, category_id) VALUES (50, 207);

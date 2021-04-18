@@ -8,6 +8,8 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace examples;
+
 require __DIR__ . '/../bootstrap.php';
 
 (new \VV\Db\ModelGenerator\Generator(\App\Db\Main::instance()))
