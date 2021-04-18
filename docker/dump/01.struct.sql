@@ -8,10 +8,10 @@ CREATE TABLE tbl_user_role (
 CREATE TABLE tbl_user (
     user_id      BIGSERIAL
         CONSTRAINT pk_user PRIMARY KEY               NOT NULL,
-    name         VARCHAR(100),
+    name         VARCHAR(100)                        NOT NULL,
     mobile       VARCHAR(15),
     email        VARCHAR(100),
-    password     VARCHAR(256)                        NOT NULL,
+    password     VARCHAR(256),
     deleted      SMALLINT  DEFAULT 0                 NOT NULL,
     date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
@@ -44,26 +44,48 @@ CREATE TABLE tbl_product_category (
 CREATE INDEX idx_product_category__parent_id ON tbl_product_category(parent_id);
 CREATE INDEX idx_product_category__state ON tbl_product_category(state);
 
+CREATE TABLE tbl_brand (
+    brand_id SERIAL
+        CONSTRAINT pk_brand PRIMARY KEY,
+    title    VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE tbl_color (
+    color_id SERIAL
+        CONSTRAINT pk_color PRIMARY KEY,
+    title    VARCHAR(100) NOT NULL
+);
+
 CREATE TABLE tbl_product (
     product_id  BIGSERIAL
         CONSTRAINT pk_product PRIMARY KEY,
-    title       VARCHAR(200) NOT NULL,
+    brand_id    INT
+        CONSTRAINT fk_product__brand_id REFERENCES tbl_brand,
+    title       VARCHAR(200)   NOT NULL,
     description TEXT,
-    price       INT          NOT NULL, -- in cents
-    state       SMALLINT     NOT NULL DEFAULT 1
+    price       DECIMAL(11, 2) NOT NULL, -- usd
+    weight      INT,                     -- gram
+    width       DECIMAL(7, 1),           -- mm
+    height      DECIMAL(7, 1),           -- mm
+    depth       DECIMAL(7, 1),           -- mm
+    color_id    INT
+        CONSTRAINT fk_product__color_id REFERENCES tbl_color,
+    state       SMALLINT       NOT NULL DEFAULT 1
 );
+CREATE INDEX idx_product__brand_id ON tbl_product(brand_id);
 CREATE INDEX idx_product__price ON tbl_product(price);
+CREATE INDEX idx_product__color_id ON tbl_product(color_id);
 CREATE INDEX idx_product__state ON tbl_product(state);
 
 
 CREATE TABLE tbl_products_categories (
-    products_categories_id  BIGSERIAL
+    products_categories_id BIGSERIAL
         CONSTRAINT pk_products_categories PRIMARY KEY,
-    product_id  BIGINT
+    product_id             BIGINT
         CONSTRAINT fk_products_categories__product_id REFERENCES tbl_product,
-    category_id INT          NOT NULL
+    category_id            INT      NOT NULL
         CONSTRAINT fk_products_categories__category_id REFERENCES tbl_product_category,
-    state       SMALLINT     NOT NULL DEFAULT 1
+    state                  SMALLINT NOT NULL DEFAULT 1
 );
 CREATE INDEX idx_products_categories__product_id ON tbl_products_categories(product_id);
 CREATE INDEX idx_products_categories__category_id ON tbl_products_categories(category_id);

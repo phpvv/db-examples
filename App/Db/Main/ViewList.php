@@ -6,6 +6,7 @@ namespace App\Db\Main;
 /**
  * Class ViewList
  *
+ * @package App\Db\Main
  */
 class ViewList extends \VV\Db\Model\ViewList {
 

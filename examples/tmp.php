@@ -13,4 +13,6 @@ require __DIR__ . '/../bootstrap.php';
 $db = \App\Db\Main::instance();
 $fields = $db->tbl->user->fields();
 
-exit;
+$db->tbl->user->insert([
+    // 'name' => 'Vasya',
+]);

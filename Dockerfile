@@ -30,12 +30,13 @@ RUN sed -i 's/^deb http:\/\/archive\./deb http:\/\/ua.archive./g' /etc/apt/sourc
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app/src
-COPY ./dump ./dump
+COPY ./docker/dump ./dump
 COPY ./docker/pg_hba.conf /etc/postgresql/12/main/pg_hba.conf
 
 RUN service postgresql start \
     && sudo -u postgres psql < ./dump/00.user-schema-etc.sql \
-    && PGPASSWORD=vv_example psql -U vv_example vv_example < ./dump/01.struct.sql
+    && PGPASSWORD=vv_example psql -U vv_example vv_example < ./dump/01.struct.sql \
+    && PGPASSWORD=vv_example psql -U vv_example vv_example < ./dump/02.data.sql
 
 EXPOSE 5432
 

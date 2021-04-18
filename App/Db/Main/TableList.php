@@ -6,9 +6,18 @@ namespace App\Db\Main;
 /**
  * Class TableList
  *
- * @property-read Table\User $user
- * @property-read Table\UsersRoles $usersRoles
- * @property-read Table\UserRole $userRole
+ * @package App\Db\Main
+ * @property-read Tables\BrandTable $brand
+ * @property-read Tables\ColorTable $color
+ * @property-read Tables\OrderTable $order
+ * @property-read Tables\OrderItemTable $orderItem
+ * @property-read Tables\OrderStateTable $orderState
+ * @property-read Tables\ProductTable $product
+ * @property-read Tables\ProductCategoryTable $productCategory
+ * @property-read Tables\ProductsCategoriesTable $productsCategories
+ * @property-read Tables\UserTable $user
+ * @property-read Tables\UserRoleTable $userRole
+ * @property-read Tables\UsersRolesTable $usersRoles
  */
 class TableList extends \VV\Db\Model\TableList {
 

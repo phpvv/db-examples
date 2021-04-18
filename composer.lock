@@ -49,7 +49,7 @@
             "dist": {
                 "type": "path",
                 "url": "../db",
-                "reference": "245b6c16ccb36740c1e29c4ffd9afe332873d40b"
+                "reference": "d77fcc5398cbca03db9a9ff3c5c727a84ff37dec"
             },
             "require": {
                 "php": "^8.0",
