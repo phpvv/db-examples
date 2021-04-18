@@ -16,7 +16,7 @@ class OrderTable extends \App\Db\Main\Table {
         'order_id' => [Field::T_NUM, null, 8, 17, 0, 'nextval(\'tbl_order_order_id_seq\'::regclass)', true, false],
         'state_id' => [Field::T_NUM, null, 2, 4, 0, null, false, false],
         'user_id' => [Field::T_NUM, null, 8, 17, 0, null, true, false],
-        'amount' => [Field::T_NUM, null, 4, 9, 0, null, true, false],
+        'amount' => [Field::T_NUM, null, null, 11, 2, null, false, false],
         'comment' => [Field::T_CHR, 4000, null, 0, null, null, false, false],
     ];
     protected const FOREING_KEYS = [

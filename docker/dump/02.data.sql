@@ -1,3 +1,8 @@
+INSERT INTO tbl_order_state (state_id, title) VALUES (1, 'In progress');
+INSERT INTO tbl_order_state (state_id, title) VALUES (2, 'Waiting customer');
+INSERT INTO tbl_order_state (state_id, title) VALUES (3, 'Done');
+INSERT INTO tbl_order_state (state_id, title) VALUES (9, 'Canceled');
+
 INSERT INTO tbl_user (user_id, name, mobile, email) VALUES (1, 'John Doe', '+1 111-11-11', 'john.doe@example.com');
 INSERT INTO tbl_user (user_id, name, mobile, email) VALUES (2, 'Yamada Hanako', '+22 2-22-222', 'yamada.hanako@example.com');
 INSERT INTO tbl_user (user_id, name, mobile, email) VALUES (3, 'Taras Shevchenko', '+380 12 345-67-89', 't.shevchenko@example.com');

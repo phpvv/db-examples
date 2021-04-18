@@ -9,6 +9,7 @@ namespace App\Db\Main;
  * @package App\Db\Main
  * @property-read Tables\BrandTable $brand
  * @property-read Tables\ColorTable $color
+ * @property-read Tables\LogTable $log
  * @property-read Tables\OrderTable $order
  * @property-read Tables\OrderItemTable $orderItem
  * @property-read Tables\OrderStateTable $orderState

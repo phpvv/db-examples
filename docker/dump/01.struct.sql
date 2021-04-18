@@ -106,7 +106,7 @@ CREATE TABLE tbl_order (
         CONSTRAINT fk_order__state_id REFERENCES tbl_order_state,
     user_id  BIGINT NOT NULL
         CONSTRAINT fk_order__user_id REFERENCES tbl_user,
-    amount   INT    NOT NULL,
+    amount   DECIMAL(11, 2),
     comment  VARCHAR(4000)
 );
 CREATE INDEX idx_order__state_id ON tbl_order(state_id);
@@ -119,8 +119,16 @@ CREATE TABLE tbl_order_item (
         CONSTRAINT fk_order_item__order_id REFERENCES tbl_order,
     product_id BIGSERIAL
         CONSTRAINT fk_order_item__product_id REFERENCES tbl_product,
-    price      INT      NOT NULL,
-    quantity   SMALLINT NOT NULL
+    price      DECIMAL(11, 2) NOT NULL,
+    quantity   SMALLINT       NOT NULL
 );
 CREATE INDEX idx_order_item__order_id ON tbl_order_item(order_id);
 CREATE INDEX idx_order_item__product_id ON tbl_order_item(product_id);
+
+CREATE TABLE tbl_log (
+    log_id       BIGSERIAL
+        CONSTRAINT pk_log PRIMARY KEY,
+    title        VARCHAR(200) NOT NULL,
+    description  TEXT,
+    date_created TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

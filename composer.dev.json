@@ -1,0 +1,47 @@
+{
+    "name": "phpvv/db-examples",
+    "description": "Project with examples for phpvv/db packages",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Volodymyr Sarnytskyi",
+            "email": "v00v4n@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "App"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "phpvv/core": "^0.2.0",
+        "phpvv/db-mysqli": "dev-master",
+        "phpvv/db-oci": "dev-master",
+        "phpvv/db-pdo": "@dev",
+        "phpvv/db": "@dev"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url":  "../db-mysqli"
+        },
+        {
+            "type": "path",
+            "url":  "../db-oci"
+        },
+        {
+            "type": "path",
+            "url":  "../db-pdo"
+        },
+        {
+            "type": "path",
+            "url":  "../db"
+        },
+        {
+            "type": "path",
+            "url":  "../core"
+        }
+    ]
+}

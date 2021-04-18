@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="big-transaction.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" folderName="examples" path="$PROJECT_DIR$/examples/big-transaction.php">
+    <method v="2" />
+  </configuration>
+</component>

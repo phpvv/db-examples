@@ -21,7 +21,7 @@ class OrderItemTable extends \App\Db\Main\Table {
         'item_id' => [Field::T_NUM, null, 8, 17, 0, 'nextval(\'tbl_order_item_item_id_seq\'::regclass)', true, false],
         'order_id' => [Field::T_NUM, null, 8, 17, 0, 'nextval(\'tbl_order_item_order_id_seq\'::regclass)', true, false],
         'product_id' => [Field::T_NUM, null, 8, 17, 0, 'nextval(\'tbl_order_item_product_id_seq\'::regclass)', true, false],
-        'price' => [Field::T_NUM, null, 4, 9, 0, null, true, false],
+        'price' => [Field::T_NUM, null, null, 11, 2, null, true, false],
         'quantity' => [Field::T_NUM, null, 2, 4, 0, null, true, false],
     ];
     protected const FOREING_KEYS = [
