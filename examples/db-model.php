@@ -13,6 +13,14 @@ namespace examples;
 require __DIR__ . '/../bootstrap.php';
 
 use App\Db\MainDb;
-use VV\Db\ModelGenerator\Generator;
 
-(new Generator(MainDb::instance()))->build();
+$db = MainDb::instance();
+
+$products = $db->tbl->product
+    ->select('product_id', 'b.title brand', 'title', 'price')
+    ->join($db->tbl->brand)
+    ->where('brand_id', 1)
+    ->where('price >', 100)
+    ->rows;
+
+print_r($products);

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="big-select.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" folderName="examples" path="$PROJECT_DIR$/examples/big-select.php">
+  <configuration default="false" name="big-select.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/examples/big-select.php">
     <method v="2" />
   </configuration>
 </component>

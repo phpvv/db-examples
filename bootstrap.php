@@ -7,7 +7,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/config.php';
 
 // php configuration
-\VV\Bootstrap::dfltSysConfig(\App\DEV_MODE);
+\VV\Bootstrap::dfltSysConfig(\APP\DEV_MODE);
 
 // errors handling
 \VV\Bootstrap::initErrorHandler();

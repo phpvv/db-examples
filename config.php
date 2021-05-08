@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace App {
+namespace APP {
     const DEV_MODE = true;
 }
 
-namespace App\DB\MAIN {
+namespace APP\DB\MAIN {
     const HOST = 'localhost';
     const DBNAME = 'vv_example';
     const USER = 'vv_example';

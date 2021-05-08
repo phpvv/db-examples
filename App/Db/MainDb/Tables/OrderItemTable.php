@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /** Created by VV Db Model Generator */
-namespace App\Db\Main\Tables;
+namespace App\Db\MainDb\Tables;
 
 use VV\Db\Model\Field;
 
@@ -10,7 +10,7 @@ use VV\Db\Model\Field;
  *
  * @package App\Db\Main\Tables
  */
-class OrderItemTable extends \App\Db\Main\Table {
+class OrderItemTable extends \App\Db\MainDb\Table {
 
     //region Auto-generated area
     protected const NAME = 'tbl_order_item';

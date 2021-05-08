@@ -10,11 +10,11 @@
  */
 namespace examples;
 
-use VV\Db\Param;
-
 require __DIR__ . '/../bootstrap.php';
 
-$db = \App\Db\Main::instance();
+use VV\Db\Param;
+
+$db = \App\Db\MainDb::instance();
 
 $userId = 1;
 $cart = [
@@ -90,8 +90,8 @@ try {
 
     $db->tbl->order->update()
         ->set(['amount' => $totalAmount])
-        // ->exec() // throws an exception that you are trying to execute statement outside of transaction started for current connection
         ->whereId($orderId)
+        // ->exec() // throws an exception that you are trying to execute statement outside of transaction started for current connection
         ->exec($txn);
 
     // you can execute important statement in transaction free connection

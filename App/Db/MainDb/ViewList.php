@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /** Created by VV Db Model Generator */
-namespace App\Db\Main;
+namespace App\Db\MainDb;
 
 /**
  * Class ViewList

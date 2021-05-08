@@ -10,20 +10,21 @@
  */
 namespace App\Db;
 
-use App\DB\MAIN as CNF;
+use APP\DB\MAIN as CONF;
+use VV\Db\Connection;
 use VV\Db\Pdo\Driver;
 
 /**
- * @method Main\TableList tables()
- * @method Main\ViewList views()
- * @property-read Main\TableList $tbl
- * @property-read Main\TableList $vw
+ * @method MainDb\TableList tables()
+ * @method MainDb\ViewList views()
+ * @property-read MainDb\TableList $tbl
+ * @property-read MainDb\TableList $vw
  */
-class Main extends \VV\Db {
+class MainDb extends \VV\Db {
 
-    public function createConnection(): \VV\Db\Connection {
+    public function createConnection(): Connection {
         $driver = new Driver(Driver::DBMS_POSTGRES);
 
-        return new \VV\Db\Connection($driver, CNF\HOST, CNF\USER, CNF\PASSWD, CNF\DBNAME);
+        return new Connection($driver, CONF\HOST, CONF\USER, CONF\PASSWD, CONF\DBNAME);
     }
 }

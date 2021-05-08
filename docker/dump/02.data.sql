@@ -53,7 +53,9 @@ SELECT setval('tbl_color_color_id_seq', 100, false);
 INSERT INTO tbl_product (product_id, brand_id, title, price, weight, width, height, depth, color_id)
 VALUES (10, 1, 'Computer 10', 1000, 10000, 250, 500, 500, 1);
 INSERT INTO tbl_product (product_id, brand_id, title, price, weight, width, height, depth, color_id)
-VALUES (11, 1, 'Computer 11', 1500, 12000, 300, 600, 655, 1);
+VALUES (11, 2, 'Computer 11', 1500, 12000, 300, 600, 655, 5);
+INSERT INTO tbl_product (product_id, brand_id, title, price, weight, width, height, depth, color_id)
+VALUES (12, 1, 'Computer 12', 1200, 9000, 300, 600, 655, NULL);
 INSERT INTO tbl_product (product_id, brand_id, title, price, weight, width, height, depth, color_id)
 VALUES (20, 2, 'Mouse 20', 50.25, NULL, NULL, NULL, NULL, 5);
 INSERT INTO tbl_product (product_id, brand_id, title, price, weight, width, height, depth, color_id)
@@ -69,6 +71,8 @@ INSERT INTO tbl_products_categories (product_id, category_id) VALUES (10, 102);
 INSERT INTO tbl_products_categories (product_id, category_id) VALUES (10, 202);
 INSERT INTO tbl_products_categories (product_id, category_id) VALUES (11, 102);
 INSERT INTO tbl_products_categories (product_id, category_id) VALUES (11, 202);
+INSERT INTO tbl_products_categories (product_id, category_id) VALUES (12, 102);
+INSERT INTO tbl_products_categories (product_id, category_id) VALUES (12, 202);
 INSERT INTO tbl_products_categories (product_id, category_id) VALUES (20, 100);
 INSERT INTO tbl_products_categories (product_id, category_id) VALUES (30, 201);
 INSERT INTO tbl_products_categories (product_id, category_id) VALUES (40, 100);
