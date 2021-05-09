@@ -13,6 +13,6 @@ namespace examples;
 require __DIR__ . '/../bootstrap.php';
 
 use App\Db\MainDb;
-use VV\Db\ModelGenerator\Generator;
+use VV\Db\Model\Generator\ModelGenerator;
 
-(new Generator(MainDb::instance()))->build();
+(new ModelGenerator(MainDb::instance()))->build();
