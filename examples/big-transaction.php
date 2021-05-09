@@ -46,7 +46,7 @@ try {
     // variants:
     switch (2) {
         case 1:
-            // doesn't care about performance
+            // don't care about performance
             foreach ($productIterExtended as [$productId, $price, $quantity]) {
                 $db->tbl->orderItem->insert()
                     ->set([

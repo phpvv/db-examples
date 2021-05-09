@@ -29,23 +29,25 @@ $query = $db->tbl->product
         Sql::condition()
             ->exists(                                               // WHERE EXISTS (
                 $db->tbl->productsCategories->select('1')               // SELECT 1 FROM tbl_products_categories pc
-                ->where('`pc`.`product_id`=`p`.`product_id`')       // WHERE ("pc"."product_id"="p"."product_id")
-                ->where('category_id', $categoryId)                 // AND pc.category_id = :p1
-                ->where('state', $stateParam)                       // AND pc.state = :state
+                ->where('`pc`.`product_id`=`p`.`product_id`')           // WHERE ("pc"."product_id"="p"."product_id")
+                ->where([
+                    'category_id' => $categoryId,                       // AND pc.category_id = :p1
+                    'state' => $stateParam                              // AND pc.state = :state
+                ])
             )                                                       // )
             ->and('state')->eq($stateParam)                         // AND p.state = :state
             // ->and('title')->like('Comp%')
             ->and('title')->startsWith('Comp')                      // AND p.title LIKE :p2 -- 'Comp%'
             ->and('price')
-            ->gte(1000)                                         // AND p.price >= :p3
-            ->and
-            ->lte(2000)                                         // AND p.price <= :p4
+                ->gte(1000)                                         // AND p.price >= :p3
+                ->and
+                ->lte(2000)                                         // AND p.price <= :p4
             ->and('weight')->between(7000, 15000)                   // AND p.weight BETWEEN :p5 AND :p6
             ->and(                                                  // AND (
                 Sql::condition('width') // nested condition
-                ->lt(500)                                           // p.width > :p7
-                ->or                                                // OR
-                ->isNull()                                          // p.width IS NULL
+                    ->lt(500)                                           // p.width > :p7
+                    ->or                                                // OR
+                    ->isNull()                                          // p.width IS NULL
             )                                                       // )
             ->and('c.color_id')->in(1, 5, null)                     // AND (c.color_id IN (:p8, :p9) OR c.color_id IS NULL)
             ->and('brand_id')->not->in(3, 4)                        // AND (p.brand_id NOT IN (:p10, :p11) OR p.brand_id IS NULL)
@@ -58,6 +60,10 @@ $query = $db->tbl->product
             ->when(5)->then(1)                                      // color_id = 5 - first
             ->when(1)->then(2)                                      // color_id = 1 - second
             ->else(3),                                              // other colors at the end - first
+        // Sql::case()
+        //     ->when(Sql::condition('p.color_id')->eq(5))->then(1)    // same CASE as above
+        //     ->when(['p.color_id' => 1])->then(2)
+        //     ->else(3),
         '-price',                                                   // price DESC,
         'title'                                                     // title ASC
     )
