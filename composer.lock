@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b0c26180139ddf350bbd6e92e465cd9",
+    "content-hash": "dd2c7c5280a5e09aad6eec5e388c9b49",
     "packages": [
         {
             "name": "phpvv/core",
@@ -49,7 +49,7 @@
             "dist": {
                 "type": "path",
                 "url": "../db",
-                "reference": "d77fcc5398cbca03db9a9ff3c5c727a84ff37dec"
+                "reference": "7ad10f1e762bebb0a7c8bada3824b17431692738"
             },
             "require": {
                 "php": "^8.0",
@@ -78,6 +78,21 @@
                 }
             ],
             "description": "VV database abstraction layer with query builder and DB structure models",
+            "keywords": [
+                "abstraction layer",
+                "database",
+                "db",
+                "dbal",
+                "mysql",
+                "mysqli",
+                "oci8",
+                "oracle",
+                "pdo",
+                "postgres",
+                "postgresql",
+                "query builder",
+                "sql"
+            ],
             "transport-options": {
                 "relative": true
             }
@@ -88,7 +103,7 @@
             "dist": {
                 "type": "path",
                 "url": "../db-mysqli",
-                "reference": "0957639cda8244c1a5cca9c424b8c73022e5e888"
+                "reference": "0e4ba0911182b021ba01a18acd4c6840714ddd19"
             },
             "require": {
                 "ext-mysqli": "*",
@@ -96,7 +111,7 @@
                 "phpvv/db": "dev-master"
             },
             "require-dev": {
-                "jetbrains/phpstorm-attributes": "^1.0"
+                "squizlabs/php_codesniffer": "^3.6"
             },
             "type": "library",
             "autoload": {
@@ -124,7 +139,7 @@
             "dist": {
                 "type": "path",
                 "url": "../db-oci",
-                "reference": "aca72ec310975e1db56f2e47a3b8ae39e6eb6a43"
+                "reference": "eed23855c15a3a84a757941d9a5458a8edfbd6cf"
             },
             "require": {
                 "ext-oci8": "*",
@@ -132,7 +147,7 @@
                 "phpvv/db": "dev-master"
             },
             "require-dev": {
-                "jetbrains/phpstorm-attributes": "^1.0"
+                "squizlabs/php_codesniffer": "^3.6"
             },
             "type": "library",
             "autoload": {
@@ -160,7 +175,7 @@
             "dist": {
                 "type": "path",
                 "url": "../db-pdo",
-                "reference": "9bda6a4a2829413a3b408454eb127397e24aa56f"
+                "reference": "e06c258357a86dd300a9c1141f390e53638d4368"
             },
             "require": {
                 "ext-pdo": "*",
@@ -168,7 +183,7 @@
                 "phpvv/db": "dev-master"
             },
             "require-dev": {
-                "jetbrains/phpstorm-attributes": "^1.0"
+                "squizlabs/php_codesniffer": "^3.6"
             },
             "type": "library",
             "autoload": {
@@ -185,23 +200,36 @@
                     "email": "v00v4n@gmail.com"
                 }
             ],
-            "description": "VV DB Driver over Oci extension",
+            "description": "VV DB Driver over PDO extension",
+            "keywords": [
+                "abstraction layer",
+                "database",
+                "db",
+                "dbal",
+                "mysql",
+                "oracle",
+                "pdo",
+                "postgres",
+                "postgresql",
+                "query builder",
+                "sql"
+            ],
             "transport-options": {
                 "relative": true
             }
         },
         {
             "name": "phpvv/exception",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpvv/exception.git",
-                "reference": "25cf76ff57fd6c93fd9c5949f7231c370b6a2b7c"
+                "reference": "30889e5890be3c69070ef8910353975a0e44e7a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpvv/exception/zipball/25cf76ff57fd6c93fd9c5949f7231c370b6a2b7c",
-                "reference": "25cf76ff57fd6c93fd9c5949f7231c370b6a2b7c",
+                "url": "https://api.github.com/repos/phpvv/exception/zipball/30889e5890be3c69070ef8910353975a0e44e7a7",
+                "reference": "30889e5890be3c69070ef8910353975a0e44e7a7",
                 "shasum": ""
             },
             "require": {
@@ -233,9 +261,9 @@
             "description": "VV Exception",
             "support": {
                 "issues": "https://github.com/phpvv/exception/issues",
-                "source": "https://github.com/phpvv/exception/tree/v0.2.0"
+                "source": "https://github.com/phpvv/exception/tree/0.2.1"
             },
-            "time": "2021-03-28T08:11:01+00:00"
+            "time": "2021-04-26T12:37:48+00:00"
         },
         {
             "name": "phpvv/notice",
@@ -331,7 +359,64 @@
             "time": "2021-03-28T07:57:57+00:00"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "squizlabs/php_codesniffer",
+            "version": "3.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
+                "reference": "ffced0d2c8fa8e6cdc4d695a743271fab6c38625",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
+            },
+            "bin": [
+                "bin/phpcs",
+                "bin/phpcbf"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "lead"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "https://github.com/squizlabs/PHP_CodeSniffer",
+            "keywords": [
+                "phpcs",
+                "standards"
+            ],
+            "support": {
+                "issues": "https://github.com/squizlabs/PHP_CodeSniffer/issues",
+                "source": "https://github.com/squizlabs/PHP_CodeSniffer",
+                "wiki": "https://github.com/squizlabs/PHP_CodeSniffer/wiki"
+            },
+            "time": "2021-04-09T00:54:41+00:00"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {

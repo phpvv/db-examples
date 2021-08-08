@@ -61,7 +61,7 @@ try {
         case 2:
             // multi values insert
             $insertItemQuery = $db->tbl->orderItem->insert()
-                ->fields('order_id', 'product_id', 'price', 'quantity');
+                ->columns('order_id', 'product_id', 'price', 'quantity');
 
             foreach ($productIterExtended as [$productId, $price, $quantity]) {
                 $insertItemQuery->values($orderId, $productId, $price, $quantity);
@@ -97,7 +97,7 @@ try {
     // you can execute important statement in transaction free connection
     $db->tbl->log->insert()
         ->set(['title' => "new order #$orderId"])
-        ->setConnection($db->transactionFreeConnection()) // set new conenction for query
+        ->setConnection($db->getFreeConnection()) // set new conenction for query
         ->exec();
 
     // throw new \RuntimeException('Test transactionFreeConnection()');
