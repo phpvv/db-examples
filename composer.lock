@@ -4,15 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd2c7c5280a5e09aad6eec5e388c9b49",
+    "content-hash": "58e18a599cd569e52d16344553906f22",
     "packages": [
         {
             "name": "phpvv/core",
             "version": "0.2.0",
-            "dist": {
-                "type": "path",
-                "url": "../core",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpvv/core.git",
                 "reference": "d38e56392b85e79dee5f89d92cf76ade3377fcbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpvv/core/zipball/d38e56392b85e79dee5f89d92cf76ade3377fcbd",
+                "reference": "d38e56392b85e79dee5f89d92cf76ade3377fcbd",
+                "shasum": ""
             },
             "require": {
                 "php": "^8.0",
@@ -29,6 +35,7 @@
                     "Bootstrap.php"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -39,9 +46,11 @@
                 }
             ],
             "description": "VV Core Bundle",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/phpvv/core/issues",
+                "source": "https://github.com/phpvv/core/tree/v0.2.0"
+            },
+            "time": "2021-03-28T08:20:32+00:00"
         },
         {
             "name": "phpvv/db",

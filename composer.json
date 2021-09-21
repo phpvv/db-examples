@@ -38,10 +38,6 @@
         {
             "type": "path",
             "url":  "../db"
-        },
-        {
-            "type": "path",
-            "url":  "../core"
         }
     ],
     "require-dev": {

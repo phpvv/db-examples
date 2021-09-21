@@ -18,7 +18,7 @@ $db = \App\Db\MainDb::instance();
 
 $userId = 1;
 $cart = [
-    // productId => quentity
+    // productId => quantity
     10 => 1,
     20 => 2,
     40 => 3,
@@ -32,7 +32,10 @@ $productIter = $db->tbl->product->select('product_id', 'price')
 $txn = $db->startTransaction();
 try {
     $orderId = $db->tbl->order->insert()
-        ->set(['user_id' => $userId])
+        ->set([
+            'user_id' => $userId,
+            'date_created' => new \DateTime(),
+        ])
         ->insertedId($txn);
 
     $totalAmount = 0;
@@ -44,7 +47,7 @@ try {
     })();
 
     // variants:
-    switch (2) {
+    switch (1) {
         case 1:
             // don't care about performance
             foreach ($productIterExtended as [$productId, $price, $quantity]) {
@@ -73,9 +76,9 @@ try {
             $prepared = $db->tbl->orderItem->insert()
                 ->set([
                     'order_id' => Param::int($orderId),
-                    'product_id' => $productIdParam = Param::chr(size: 16),
-                    'price' => $priceParam = Param::chr(size: 16),
-                    'quantity' => $quantityParam = Param::chr(size: 16),
+                    'product_id' => $productIdParam = Param::str(size: 16),
+                    'price' => $priceParam = Param::str(size: 16),
+                    'quantity' => $quantityParam = Param::str(size: 16),
                 ]);
 
             foreach ($productIterExtended as [$productId, $price, $quantity]) {

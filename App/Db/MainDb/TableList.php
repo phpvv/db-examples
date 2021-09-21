@@ -1,12 +1,15 @@
-<?php declare(strict_types=1);
+<?php
 
 /** Created by VV Db Model Generator */
+
+declare(strict_types=1);
+
 namespace App\Db\MainDb;
 
 /**
  * Class TableList
  *
- * @package App\Db\Main
+ * @package App\Db\MainDb
  * @property-read Tables\BrandTable $brand
  * @property-read Tables\ColorTable $color
  * @property-read Tables\LogTable $log
@@ -20,6 +23,6 @@ namespace App\Db\MainDb;
  * @property-read Tables\UserRoleTable $userRole
  * @property-read Tables\UsersRolesTable $usersRoles
  */
-class TableList extends \VV\Db\Model\TableList {
-
+class TableList extends \VV\Db\Model\TableList
+{
 }
