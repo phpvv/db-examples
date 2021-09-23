@@ -100,14 +100,15 @@ CREATE TABLE tbl_order_state (
 );
 
 CREATE TABLE tbl_order (
-    order_id BIGSERIAL
+    order_id     BIGSERIAL
         CONSTRAINT pk_order PRIMARY KEY,
-    state_id SMALLINT
+    state_id     SMALLINT
         CONSTRAINT fk_order__state_id REFERENCES tbl_order_state,
-    user_id  BIGINT NOT NULL
+    user_id      BIGINT      NOT NULL
         CONSTRAINT fk_order__user_id REFERENCES tbl_user,
-    amount   DECIMAL(11, 2),
-    comment  VARCHAR(4000)
+    amount       DECIMAL(11, 2),
+    comment      VARCHAR(4000),
+    date_created TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 CREATE INDEX idx_order__state_id ON tbl_order(state_id);
 CREATE INDEX idx_order__user_id ON tbl_order(user_id);

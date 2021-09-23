@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace examples;
 
-require __DIR__ . '/../bootstrap.php';
+require __DIR__ . '/../../bootstrap.php';
 
 use App\Db\MainDb;
 use VV\Db\Sql;
