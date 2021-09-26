@@ -43,15 +43,29 @@ $query = $db->tbl->orderItem->select(/*...*/)
 echo $query->toString(), "\n\n";
 ////
 
+// Specify alias of table to which join is needed:
 $query = $db->tbl->orderItem->select(/*...*/)
     ->join($db->tbl->order)
     ->join($db->tbl->product, 'oi'); // join to tbl_order_item (not tbl_order) by product_id field
 echo $query->toString(), "\n\n";
 
+// Specify column of table to which join is needed:
 $query = $db->tbl->orderItem->select(/*...*/)
     ->join($db->tbl->order, '.foo_id'); // "o"."order_id" = "oi"."foo_id"
 echo $query->toString(), "\n\n";
 
+// Specify alias and column of table to which join is needed:
+$query = $db->tbl->orderItem->select(/*...*/)
+    ->join($db->tbl->order)
+    ->join($db->tbl->product, 'oi.foo_id'); // "p"."product_id" = "oi"."foo_id"
+echo $query->toString(), "\n\n";
+
+// `joinParent()`:
 $query = $db->tbl->productCategory->select(/*...*/)
     ->joinParent('pc2'); // JOIN "tbl_product_category" "pc2" ON ("pc2"."category_id" = "pc"."parent_id")
+echo $query->toString(), "\n\n";
+
+// `joinBack()`:
+$query = $db->tbl->order->select(/*...*/)
+    ->joinBack($db->tbl->orderItem); // JOIN "tbl_order_item" "oi" ON ("oi"."item_id" = "o"."order_id")
 echo $query->toString(), "\n\n";

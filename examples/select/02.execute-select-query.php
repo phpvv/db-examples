@@ -42,7 +42,8 @@ while (['product_id' => $productId, 'title' => $title] = $result->fetch()) {
 }
 
 echo "\n# foreach(->result()): \n";
-foreach ($query->result(Db::FETCH_NUM) as [$productId, $title, $brand]) {
+$rowIterator = $query->result(Db::FETCH_NUM);
+foreach ($rowIterator as [$productId, $title, $brand]) {
     echo "$productId: $brand $title\n";
 }
 
@@ -50,7 +51,7 @@ echo "\n# ->result->rows: ";
 print_r($query->result()->rows/*($flags)*/);
 
 echo "\n# ->result->assoc: ";
-print_r($query->result()->assoc(keyColumn: 'product_id', valueColumn: 'title'));
+print_r($query->result()->assoc/*(keyColumn: 'product_id'[, valueColumn: 'title'])*/);
 //
 
 

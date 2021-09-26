@@ -35,8 +35,11 @@ echo $query->toString(), "\n";
 print_r($query->rows);
 
 $query = $db->tbl->product->select()
-    ->where('color_id', 5)      // same: `->where('color_id =', 5)`
-    ->where('price <=', 2000)   // supported operators: = | != | <> | < | > | <= | >=
+    ->where('color_id', 5) // same: `->where('color_id =', 5)`
+    ->where(
+        'price <=', // supported operators: = | != | <> | < | > | <= | >=
+        $db->tbl->product->select('AVG(price)') // HEAVING in another example
+    )
     ->where('title !=', null);
 
 echo $query->toString(), "\n";
