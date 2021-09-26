@@ -23,14 +23,15 @@ $connection = $db->getConnection(); // or $db->getFreeConnection();
 
 $columns = ['product_id', 'brand_id', 'title', 'price'];
 
+// from `Connection` directly:
 $selectQuery = $connection->select(...$columns)->from('tbl_product');
 echo $selectQuery->toString(), "\n";
 
-// from Db
+// from `Db`:
 $selectQuery = $db->select(...$columns)->from('tbl_product');
 echo $selectQuery->toString(), "\n";
 
-// from Table
+// from `Table` (recommended):
 $selectQuery = $db->tbl->product->select(...$columns);
 echo $selectQuery->toString(), "\n";
 print_r($selectQuery->rows);
