@@ -26,8 +26,8 @@ $query = $db->tbl->product->select('product_id', 'title')->whereId(10);
 echo "\n# ->result->row: ";
 print_r($query->result->row/*($flags)*/);
 
-echo "\n# ->result->column:\n";
-echo $query->result->column/*($columnIndex[, $flags])*/;
+echo "\n# ->result->cell:\n";
+echo $query->result->cell/*($columnIndex[, $flags])*/;
 echo "\n";
 //
 
@@ -46,6 +46,9 @@ $rowIterator = $query->result(Db::FETCH_NUM);
 foreach ($rowIterator as [$productId, $title, $brand]) {
     echo "$productId: $brand $title\n";
 }
+
+echo "\n# ->result->column: ";
+print_r($query->result()->column/*($columnIndex[, $flags])*/);
 
 echo "\n# ->result->rows: ";
 print_r($query->result()->rows/*($flags)*/);
@@ -82,6 +85,12 @@ print_r($query->row);
 echo "\n# ->row(FETCH_BOTH): ";
 print_r($query->row(Db::FETCH_NUM | Db::FETCH_ASSOC));
 
-echo "\n# ->column:\n", $query->column, "\n";
-echo "\n# ->column(1):\n", $query->column(1), "\n";
+echo "\n# ->column: ";
+print_r($query->column);
+
+echo "\n# ->column(1): ";
+print_r($query->column(1));
+
+echo "\n# ->cell:\n", $query->cell, "\n";
+echo "\n# ->cell(1):\n", $query->cell(1), "\n";
 //
