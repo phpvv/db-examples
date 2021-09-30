@@ -12,67 +12,60 @@ namespace examples;
 
 require __DIR__ . '/../bootstrap.php';
 
+use App\Db\MainDb;
 use VV\Db\Param;
 
-$db = \App\Db\MainDb::instance();
+$db = MainDb::instance();
 
 $userId = 1;
 $cart = [
     // productId => quantity
-    10 => 1,
-    20 => 2,
-    40 => 3,
+    10 => rand(1, 2),
+    20 => rand(1, 3),
+    40 => rand(1, 5),
 ];
 
 
-$productIter = $db->tbl->product->select('product_id', 'price')
+$productIterator = $db->tbl->product->select('product_id', 'price')
     ->whereIdIn(...array_keys($cart))
     ->result(\VV\Db::FETCH_NUM);
 
-$txn = $db->startTransaction();
+$transaction = $db->startTransaction();
 try {
     $orderId = $db->tbl->order->insert()
         ->set([
             'user_id' => $userId,
             'date_created' => new \DateTime(),
         ])
-        ->insertedId($txn);
-
-    $totalAmount = 0;
-    $productIterExtended = (function () use ($productIter, $cart, &$totalAmount) {
-        foreach ($productIter as [$productId, $price]) {
-            yield [$productId, $price, $quantity = $cart[$productId]];
-            $totalAmount += $price * $quantity;
-        }
-    })();
+        ->insertedId($transaction);
 
     // variants:
-    switch (1) {
+    switch (3) {
         case 1:
-            // don't care about performance
-            foreach ($productIterExtended as [$productId, $price, $quantity]) {
+            // build and execute queries for each item
+            foreach ($productIterator as [$productId, $price]) {
                 $db->tbl->orderItem->insert()
                     ->set([
                         'order_id' => $orderId,
                         'product_id' => $productId,
                         'price' => $price,
-                        'quantity' => $quantity,
+                        'quantity' => $cart[$productId],
                     ])
-                    ->exec($txn);
+                    ->exec($transaction);
             }
             break;
         case 2:
-            // multi values insert
+            // build and execute one query for all items
             $insertItemQuery = $db->tbl->orderItem->insert()
                 ->columns('order_id', 'product_id', 'price', 'quantity');
 
-            foreach ($productIterExtended as [$productId, $price, $quantity]) {
-                $insertItemQuery->values($orderId, $productId, $price, $quantity);
+            foreach ($productIterator as [$productId, $price]) {
+                $insertItemQuery->values($orderId, $productId, $price, $cart[$productId]);
             }
-            $insertItemQuery->exec($txn);
+            $insertItemQuery->exec($transaction);
             break;
         case 3:
-            // prepared query
+            // prepare query and execute it for each item
             $prepared = $db->tbl->orderItem->insert()
                 ->set([
                     'order_id' => Param::int($orderId),
@@ -81,33 +74,36 @@ try {
                     'quantity' => $quantityParam = Param::str(size: 16),
                 ]);
 
-            foreach ($productIterExtended as [$productId, $price, $quantity]) {
+            foreach ($productIterator as [$productId, $price]) {
                 $productIdParam->setValue($productId);
                 $priceParam->setValue($price);
-                $quantityParam->setValue($quantity);
+                $quantityParam->setValue($cart[$productId]);
 
-                $prepared->exec($txn);
+                $prepared->exec($transaction);
             }
             break;
     }
 
     $db->tbl->order->update()
-        ->set(['amount' => $totalAmount])
+        ->set(
+            'amount',
+            $db->tbl->orderItem->select('SUM(price * quantity)')->where('order_id=o.order_id')
+        )
         ->whereId($orderId)
-        // ->exec() // throws an exception that you are trying to execute statement outside of transaction started for current connection
-        ->exec($txn);
+        // ->exec() // throws an exception that you are trying to execute statement
+                    // outside of transaction started for current connection
+        ->exec($transaction);
 
     // you can execute important statement in transaction free connection
     $db->tbl->log->insert()
         ->set(['title' => "new order #$orderId"])
-        ->setConnection($db->getFreeConnection()) // set new conenction for query
-        ->exec();
+        ->exec($db->getFreeConnection());
 
     // throw new \RuntimeException('Test transactionFreeConnection()');
 
-    $txn->commit();
+    $transaction->commit();
 } catch (\Throwable $e) {
-    $txn->rollback();
+    $transaction->rollback();
     /** @noinspection PhpUnhandledExceptionInspection */
     throw $e;
 }

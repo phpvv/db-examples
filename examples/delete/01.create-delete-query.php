@@ -22,14 +22,15 @@ $connection = $db->getConnection(); // or $db->getFreeConnection();
 // $connection = new \VV\Db\Connection(...);
 
 // from Connection directly:
-$insertQuery = $connection->insert()->into('tbl_order');
-echo $insertQuery->toString(), "\n";
+$deleteQuery = $connection->delete()->from('tbl_order');
+// WHERE clauses are obligatory to stringify DELETE query
+echo $deleteQuery->where('1=1')->toString(), "\n";
 
 // from Db:
-$insertQuery = $db->insert()->into('tbl_order');
-echo $insertQuery->toString(), "\n";
+$deleteQuery = $db->delete()->from('tbl_order');
+echo $deleteQuery->where('1=1')->toString(), "\n";
 
 // from Table (recommended):
-$insertQuery = $db->tbl->order->insert();
-// $insertQuery = $connection->insert()->into($db->tbl->order);
-echo $insertQuery->toString(), "\n";
+$deleteQuery = $db->tbl->order->delete();
+// $deleteQuery = $connection->delete()->from($db->tbl->order);
+echo $deleteQuery->whereId(1)->toString(), "\n";

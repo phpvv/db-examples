@@ -19,15 +19,14 @@ use App\Db\MainDb;
 
 $db = MainDb::instance();
 
-$query = $db->tbl->order->update()->set('amount', rand(1_00, 10000_00) * 0.01)->whereId(1);
+$query = $db->tbl->orderItem->delete()
+    ->where(
+        'price > ',
+        $db->tbl->orderItem
+            ->select('AVG(price)')
+            ->mainTableAs('oi2')
+            ->where('oi2.order_id=oi.order_id')
+    );
+
 echo $query->toString(), "\n";
-
-$result = $query->exec();
-
-//
-$affectedRows = $result->affectedRows;
-echo "affectedRows: $affectedRows\n\n";
-
-//
-$affectedRows = $query->affectedRows();
-echo "affectedRows: $affectedRows\n\n";
+var_dump($query->affectedRows());

@@ -12,10 +12,11 @@ namespace examples;
 
 require __DIR__ . '/../bootstrap.php';
 
+use App\Db\MainDb;
 use VV\Db\Param;
 use VV\Db\Sql;
 
-$db = \App\Db\MainDb::instance();
+$db = MainDb::instance();
 
 $categoryId = 102;
 $stateParam = Param::int(value: 1, name: 'state');
