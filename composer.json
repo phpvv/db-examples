@@ -1,5 +1,5 @@
 {
-    "name": "phpvv/db-examples",
+    "name": "phpvv/db-playground",
     "description": "Project with examples for phpvv/db packages",
     "type": "project",
     "license": "MIT",
